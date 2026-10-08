@@ -1,9 +1,9 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import playBtn from "../assets/images/play.svg";
 
-import { stories, mediaUrl, type Story } from "../content";
+import { stories, mediaUrl, storyPath, type Story } from "../content";
 import rightArrow from "../assets/images/chevron-right.svg";
 import leftArrow from "../assets/images/chevron-left.svg";
 import close from "../assets/images/cancel icon.svg";
@@ -17,17 +17,22 @@ export default function StoryPage() {
 
   // Memoised so the story object is stable between renders
   const data: Story | null = useMemo(
-    () => stories.find((item) => item.title === params.title) ?? null,
+    () => stories.find((item) => storyPath(item) === params.title) ?? null,
     [params.title]
   );
+
+  // The story's own content is the first tab; `tabs` adds more after it
+  const sections = useMemo(() => (data ? [data, ...(data.tabs ?? [])] : []), [data]);
+  const [tab, setTab] = useState(0);
+  const section = sections[tab] ?? null;
 
   // Combine images and videos for easy navigation
   // src is the full image or HLS playlist for the lightbox; preview is the small slider image
   const media: (LightboxItem & { preview: string })[] = useMemo(
     () =>
-      data
+      section
         ? [
-            ...(data.videos ?? []).map((v) => ({
+            ...(section.videos ?? []).map((v) => ({
               type: "video" as const,
               src: mediaUrl(v.src.hls),
               thumb: mediaUrl(v.thumb.full),
@@ -35,7 +40,7 @@ export default function StoryPage() {
               width: v.src.width,
               height: v.src.height,
             })),
-            ...data.images.map((image) => ({
+            ...section.images.map((image) => ({
               type: "image" as const,
               src: mediaUrl(image.full),
               preview: mediaUrl(image.thumb),
@@ -44,14 +49,14 @@ export default function StoryPage() {
             })),
           ]
         : [],
-    [data]
+    [section]
   );
 
   const lightbox = useLightbox(media.length);
   const currentIndex = lightbox.index;
   const swipeDirection = lightbox.direction;
 
-  if (!data) {
+  if (!data || !section) {
     return <h1>Loading</h1>;
   }
 
@@ -68,7 +73,8 @@ export default function StoryPage() {
           {/* Cover Image */}
           <div className="w-[50%] h-full">
             <SmartImage
-              src={data?.coverImage ? mediaUrl(data.coverImage.full) : ""}
+              key={section.coverImage.full}
+              src={mediaUrl(section.coverImage.full)}
               fetchPriority="high"
               alt="Cover"
               className="w-full h-full object-cover"
@@ -84,15 +90,40 @@ export default function StoryPage() {
             className="w-[60%] flex flex-col h-full gap-[0.5cqw]"
           >
             <h1 className="text-[2.8cqw] font-bold w-full text-left xl:text-[100px] text-white">
-              {data?.title}
+              {data.title}
             </h1>
 
-            <div className="border-accent-green border-(length:--line-hair) min-h-[60%] max-h-[60%] max-w-full flex justify-center items-center mb-3">
-              <div className="overflow-y-auto custom-scrollbar h-[80%] w-[95%] xl:text-[40px]">
-                {data?.text && (
+            {sections.length > 1 && (
+              <div role="tablist" className="flex gap-[0.8cqw] mb-[0.5cqw]">
+                {sections.map((s, idx) => (
+                  <button
+                    key={s.title}
+                    type="button"
+                    role="tab"
+                    aria-selected={idx === tab}
+                    onClick={() => setTab(idx)}
+                    className={`px-[1.5cqw] py-[0.5cqw] text-[0.9cqw] cursor-pointer border-accent-green border-(length:--line-1) duration-200 transition-all ${
+                      idx === tab
+                        ? "bg-accent-green text-dark-green"
+                        : "text-white hover:bg-accent-green/20"
+                    }`}
+                  >
+                    {s.title}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <div
+              className={`border-accent-green border-(length:--line-hair) max-w-full flex justify-center items-center mb-3 ${
+                sections.length > 1 ? "min-h-[52%] max-h-[52%]" : "min-h-[60%] max-h-[60%]"
+              }`}
+            >
+              <div key={tab} className="overflow-y-auto custom-scrollbar h-[80%] w-[95%] xl:text-[40px]">
+                {section.text && (
                   <p className="text-white text-[1cqw] xl:text-[0.9cqw] p-3">
-                    {data?.text} <br />
-                    {data?.title === "Making More Health" && (
+                    {section.text} <br />
+                    {section.title === "Making More Health" && (
                       <>
                         <br />
                         Continuing the journey in 2024.
@@ -102,9 +133,9 @@ export default function StoryPage() {
                 )}
 
                 {/* Render lists if they exist */}
-                {data?.lists && data?.lists.length > 0 && (
+                {section.lists && section.lists.length > 0 && (
                   <div className="flex flex-col gap-[1cqw] mt-4 p-3">
-                    {data?.lists.map((list, idx) => (
+                    {section.lists.map((list, idx) => (
                       <div key={idx} className="flex flex-col gap-[0.5cqw]">
                         <h3 className="font-semibold text-white text-[1cqw] xl:text-[0.9cqw]">
                           {list.listHead}:
@@ -124,6 +155,7 @@ export default function StoryPage() {
             {/* Media Slider */}
             {media.length > 0 && (
               <div
+                key={tab}
                 className="flex w-full h-[40%] overflow-x-auto gap-4 custom-scrollbar-y"
                 onKeyDown={handleRowKeys}
               >

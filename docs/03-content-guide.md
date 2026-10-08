@@ -91,18 +91,26 @@ Delete its object from the JSON (watch the commas). For a country, also delete i
 {
   "id": 1,
   "title": "Volunteering Activities",   // card title, page title and URL (/more/Volunteering Activities) — keep unique
+  "slug": "openness-respect-opportunity", // optional URL segment used instead of the title (use when the title has dots/odd characters)
   "coverText": "Short summary on the card…",   // truncated on the card
   "text": "",                            // optional intro paragraph on the story page ("" = none)
   "coverImage": { /* image entry */ },
   "videos": [ /* video entries */ ],     // optional
   "images": [ /* image entries */ ],
-  "lists": [ { "listHead": "Ever since 2023, we have", "listPoints": ["…", "…"] } ]
+  "lists": [ { "listHead": "Ever since 2023, we have", "listPoints": ["…", "…"] } ],
+  "tabs": [ /* optional extra tabs on the story page */ ]
 }
 ```
 
+**Tabs.** If a story has `tabs`, its page shows a tab bar: the first tab is the story's own content
+(labelled with its `title`), followed by one tab per entry. Each tab has the same fields as a story
+minus `id`/`slug`/`coverText`/`tabs`: `title` (tab label), `text`, `coverImage`, `images`, optional
+`videos` and `lists`. Switching tab swaps the cover image, text, lists and media row. Example:
+"Volunteering Activities" has a "Making More Health" tab.
+
 Notes:
 - The More Stories page shows cards side by side; two or three stories fit best.
-- The story page for **"Making More Health"** appends the sentence *"Continuing the journey in 2024."* after its text. This is hard-coded in `src/pages/StoryPage.tsx` — edit it there if it needs to change.
+- The story page (or tab) titled **"Making More Health"** appends the sentence *"Continuing the journey in 2024."* after its text. This is hard-coded in `src/pages/StoryPage.tsx` — edit it there if it needs to change.
 
 ### Add a video/photo to a story
 Upload it, then append the printed entry to that story's `videos` or `images` array.

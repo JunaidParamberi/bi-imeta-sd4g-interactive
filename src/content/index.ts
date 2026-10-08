@@ -35,16 +35,25 @@ export type Article = {
 
 export type Country = { country: string; articles: Article[] };
 
-export type Story = {
-  id: number;
+// One tab of a story page: the story's own content is the first tab, `tabs` adds more after it
+export type StorySection = {
   title: string;
   text: string;
-  coverText: string;
   coverImage: ImageMedia;
   images: ImageMedia[];
   videos?: Video[];
   lists?: List[];
 };
+
+export type Story = StorySection & {
+  id: number;
+  // URL segment under /more/; falls back to the title
+  slug?: string;
+  coverText: string;
+  tabs?: StorySection[];
+};
+
+export const storyPath = (story: Story) => story.slug ?? story.title;
 
 export type TeamMember = {
   name: string;

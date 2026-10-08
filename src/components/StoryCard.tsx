@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { mediaUrl, type Story } from "../content";
+import { mediaUrl, storyPath, type Story } from "../content";
 import SmartImage from "./SmartImage";
 
 interface StoryCardProps {
@@ -26,7 +26,7 @@ function StoryCard({ item }: StoryCardProps) {
         <div>
           <Link
             relative="path"
-            to={item.title}
+            to={storyPath(item)}
             state={item}
             className="px-[2cqw]  py-[0.7cqw] text-[0.9cqw] border-accent-green border-(length:--line-1) hover:bg-accent-green hover:text-dark-green active:opacity-70 duration-200 transition-all"
           >
