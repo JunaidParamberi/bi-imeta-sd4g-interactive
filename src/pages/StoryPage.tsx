@@ -100,7 +100,7 @@ export default function StoryPage() {
             className="w-[60%] flex flex-col h-full gap-[0.5cqw]"
           >
             <h1 className="text-[2.8cqw] font-bold w-full text-left xl:text-[100px] text-white">
-              {data.title}
+              {section.title}
             </h1>
 
             {sections.length > 1 && (
