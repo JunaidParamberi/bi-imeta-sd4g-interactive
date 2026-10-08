@@ -19,7 +19,7 @@ function StoryCard({ item }: StoryCardProps) {
         <h2 className="text-2xl xl:text-[60px]">{item.title}</h2>
 
         {/* Use the line-clamp utility to limit text to 3 lines */}
-        <p className="text-[1cqw] xl:text-[0.9cqw] text-white xl:leading-[1.2] line-clamp-3 ">
+        <p className="text-[1cqw] xl:text-[0.9cqw] text-white xl:leading-[1.2] line-clamp-3 min-h-[3lh]">
           {item.coverText}
         </p>
 
