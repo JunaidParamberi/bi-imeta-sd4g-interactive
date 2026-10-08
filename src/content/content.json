@@ -2520,13 +2520,93 @@
             "Include a 55% rate of generation Y in supervisory roles, while 5% of employees are generation Z"
           ]
         }
+      ],
+      "tabs": [
+        {
+          "title": "Making More Health",
+          "text": "To date, 800 colleagues from the IMETA region have registered on Making More Health Connect platform and every month, an average of 15 individuals are actively engaged with social entrepreneurs. In 2023, 3 colleagues from IMETA participated in Making More Health Leadership Week and 2 colleagues participated in 2024. In total, 48 IMETA employees have mentored 10 different social entrepreneurs in Boehringer Ingelheim’s incubator, accelerator and social engagement programs.",
+          "coverImage": {
+            "type": "image",
+            "full": "m/f0d66dcdbaa7e594/full.webp",
+            "thumb": "m/f0d66dcdbaa7e594/thumb.webp",
+            "width": 1623,
+            "height": 2160
+          },
+          "images": [
+            {
+              "type": "image",
+              "full": "m/7da724cbf366d41c/full.webp",
+              "thumb": "m/7da724cbf366d41c/thumb.webp",
+              "width": 3836,
+              "height": 2160
+            },
+            {
+              "type": "image",
+              "full": "m/2c28e88a536e04c7/full.webp",
+              "thumb": "m/2c28e88a536e04c7/thumb.webp",
+              "width": 3402,
+              "height": 2160
+            },
+            {
+              "type": "image",
+              "full": "m/d315545bc76ca020/full.webp",
+              "thumb": "m/d315545bc76ca020/thumb.webp",
+              "width": 1600,
+              "height": 1200
+            },
+            {
+              "type": "image",
+              "full": "m/92408e637a89ec9c/full.webp",
+              "thumb": "m/92408e637a89ec9c/thumb.webp",
+              "width": 1600,
+              "height": 1200
+            },
+            {
+              "type": "image",
+              "full": "m/24dbcceb577c494c/full.webp",
+              "thumb": "m/24dbcceb577c494c/thumb.webp",
+              "width": 1600,
+              "height": 1200
+            },
+            {
+              "type": "image",
+              "full": "m/51866fe6a6c3b19e/full.webp",
+              "thumb": "m/51866fe6a6c3b19e/thumb.webp",
+              "width": 1280,
+              "height": 960
+            },
+            {
+              "type": "image",
+              "full": "m/f48b7796f6e96644/full.webp",
+              "thumb": "m/f48b7796f6e96644/thumb.webp",
+              "width": 768,
+              "height": 1024
+            },
+            {
+              "type": "image",
+              "full": "m/4e685c393434d508/full.webp",
+              "thumb": "m/4e685c393434d508/thumb.webp",
+              "width": 1024,
+              "height": 768
+            },
+            {
+              "type": "image",
+              "full": "m/dd0b0998c5deedfa/full.webp",
+              "thumb": "m/dd0b0998c5deedfa/thumb.webp",
+              "width": 1280,
+              "height": 869
+            }
+          ],
+          "lists": []
+        }
       ]
     },
     {
       "id": 2,
-      "title": "Making More Health",
-      "text": "To date, 800 colleagues from the IMETA region have registered on Making More Health Connect platform and every month, an average of 15 individuals are actively engaged with social entrepreneurs. In 2023, 3 colleagues from IMETA participated in Making More Health Leadership Week and 2 colleagues participated in 2024. In total, 48 IMETA employees have mentored 10 different social entrepreneurs in Boehringer Ingelheim’s incubator, accelerator and social engagement programs.",
-      "coverText": "To date, 800 colleagues from the IMETA region have registered on Making More Health Connect platform and every month, an average of 15 individuals are actively engaged with social entrepreneurs. In 2023, 3 colleagues from IMETA participated in Making More Health Leadership Week and 2 colleagues participated in 2024. In total, 48 IMETA employees have mentored 10 different social entrepreneurs in Boehringer Ingelheim’s incubator, accelerator and social engagement programs.",
+      "title": "Openness. Respect. Opportunity.",
+      "slug": "openness-respect-opportunity",
+      "text": "Content coming soon.",
+      "coverText": "Content coming soon.",
       "coverImage": {
         "type": "image",
         "full": "m/f0d66dcdbaa7e594/full.webp",
@@ -2534,72 +2614,7 @@
         "width": 1623,
         "height": 2160
       },
-      "images": [
-        {
-          "type": "image",
-          "full": "m/7da724cbf366d41c/full.webp",
-          "thumb": "m/7da724cbf366d41c/thumb.webp",
-          "width": 3836,
-          "height": 2160
-        },
-        {
-          "type": "image",
-          "full": "m/2c28e88a536e04c7/full.webp",
-          "thumb": "m/2c28e88a536e04c7/thumb.webp",
-          "width": 3402,
-          "height": 2160
-        },
-        {
-          "type": "image",
-          "full": "m/d315545bc76ca020/full.webp",
-          "thumb": "m/d315545bc76ca020/thumb.webp",
-          "width": 1600,
-          "height": 1200
-        },
-        {
-          "type": "image",
-          "full": "m/92408e637a89ec9c/full.webp",
-          "thumb": "m/92408e637a89ec9c/thumb.webp",
-          "width": 1600,
-          "height": 1200
-        },
-        {
-          "type": "image",
-          "full": "m/24dbcceb577c494c/full.webp",
-          "thumb": "m/24dbcceb577c494c/thumb.webp",
-          "width": 1600,
-          "height": 1200
-        },
-        {
-          "type": "image",
-          "full": "m/51866fe6a6c3b19e/full.webp",
-          "thumb": "m/51866fe6a6c3b19e/thumb.webp",
-          "width": 1280,
-          "height": 960
-        },
-        {
-          "type": "image",
-          "full": "m/f48b7796f6e96644/full.webp",
-          "thumb": "m/f48b7796f6e96644/thumb.webp",
-          "width": 768,
-          "height": 1024
-        },
-        {
-          "type": "image",
-          "full": "m/4e685c393434d508/full.webp",
-          "thumb": "m/4e685c393434d508/thumb.webp",
-          "width": 1024,
-          "height": 768
-        },
-        {
-          "type": "image",
-          "full": "m/dd0b0998c5deedfa/full.webp",
-          "thumb": "m/dd0b0998c5deedfa/thumb.webp",
-          "width": 1280,
-          "height": 869
-        }
-      ],
-      "lists": []
+      "images": []
     }
   ],
   "team1": [
