@@ -71,14 +71,24 @@ export default function StoryPage() {
       <div className="bg-dark-green border-accent-green border-(length:--line-hair) xl:h-[90%] h-full w-full flex justify-center items-center py-7">
         <div className="w-[90%] gap-7 xl:gap-16 flex h-[80%] justify-center items-start">
           {/* Cover Image */}
-          <div className="w-[50%] h-full">
-            <SmartImage
-              key={section.coverImage.full}
-              src={mediaUrl(section.coverImage.full)}
-              fetchPriority="high"
-              alt="Cover"
-              className="w-full h-full object-cover"
-            />
+          <div className="relative w-[50%] h-full overflow-hidden">
+            <AnimatePresence initial={false}>
+              <motion.div
+                key={section.coverImage.full}
+                initial={{ opacity: 0, scale: 1.04 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="absolute inset-0"
+              >
+                <SmartImage
+                  src={mediaUrl(section.coverImage.full)}
+                  fetchPriority="high"
+                  alt="Cover"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Story Content */}
@@ -94,22 +104,31 @@ export default function StoryPage() {
             </h1>
 
             {sections.length > 1 && (
-              <div role="tablist" className="flex gap-[0.8cqw] mb-[0.5cqw]">
-                {sections.map((s, idx) => (
-                  <button
-                    key={s.title}
-                    type="button"
-                    role="tab"
-                    aria-selected={idx === tab}
-                    onClick={() => setTab(idx)}
-                    className={`px-[1.5cqw] py-[0.5cqw] text-[0.9cqw] cursor-pointer border-accent-green border-(length:--line-1) duration-200 transition-all ${
-                      idx === tab
-                        ? "bg-accent-green text-dark-green"
-                        : "text-white hover:bg-accent-green/20"
+              <div className="flex w-full items-end">
+                {sections.map((item, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => setTab(index)}
+                    className={`relative font-semibold px-[0.8cqw] transition-[color,font-size,padding] duration-300 ease-out ${
+                      tab === index
+                        ? "text-dark-green py-[0.4cqw] text-[1cqw]"
+                        : "text-white text-[0.9cqw] py-[0.7%] bg-black/20 hover:text-accent-green"
+                    }${
+                      // thin divider between two neighbouring inactive tabs
+                      index > 0 && tab !== index && tab !== index - 1
+                        ? " before:absolute before:left-0 before:top-1/4 before:h-1/2 before:w-px before:bg-white/30"
+                        : ""
                     }`}
                   >
-                    {s.title}
-                  </button>
+                    {tab === index && (
+                      <motion.span
+                        layoutId="activeStoryTab"
+                        transition={{ type: "spring", stiffness: 420, damping: 36 }}
+                        className="absolute inset-0 bg-accent-green"
+                      />
+                    )}
+                    <span className="relative">{item.title}</span>
+                  </motion.button>
                 ))}
               </div>
             )}
@@ -119,7 +138,15 @@ export default function StoryPage() {
                 sections.length > 1 ? "min-h-[52%] max-h-[52%]" : "min-h-[60%] max-h-[60%]"
               }`}
             >
-              <div key={tab} className="overflow-y-auto custom-scrollbar h-[80%] w-[95%] xl:text-[40px]">
+              <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={tab}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="overflow-y-auto custom-scrollbar h-[80%] w-[95%] xl:text-[40px]"
+              >
                 {section.text && (
                   <p className="text-white text-[1cqw] xl:text-[0.9cqw] p-3">
                     {section.text} <br />
@@ -149,18 +176,26 @@ export default function StoryPage() {
                     ))}
                   </div>
                 )}
-              </div>
+              </motion.div>
+              </AnimatePresence>
             </div>
 
             {/* Media Slider */}
+            <AnimatePresence mode="wait" initial={false}>
             {media.length > 0 && (
-              <div
+              <motion.div
                 key={tab}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { duration: 0.15 } }}
                 className="flex w-full h-[40%] overflow-x-auto gap-4 custom-scrollbar-y"
                 onKeyDown={handleRowKeys}
               >
                 {media.map((item, idx) => (
-                  <button
+                  <motion.button
+                    initial={{ opacity: 0, x: 24 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.35, ease: "easeOut", delay: Math.min(idx, 6) * 0.05 }}
                     key={`${item.src}-${idx}`}
                     ref={lightbox.thumbRef(idx)}
                     type="button"
@@ -192,10 +227,11 @@ export default function StoryPage() {
                         className="min-w-[16.2cqw] h-full object-cover cursor-zoom-in"
                       />
                     )}
-                  </button>
+                  </motion.button>
                 ))}
-              </div>
+              </motion.div>
             )}
+            </AnimatePresence>
           </motion.div>
         </div>
       </div>
