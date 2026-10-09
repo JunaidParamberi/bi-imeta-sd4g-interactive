@@ -2206,27 +2206,6 @@
             "height": 1636
           },
           "caption": "Faces of Change"
-        },
-        {
-          "src": {
-            "type": "video",
-            "hls": "m/777a548544ba171e/master.m3u8",
-            "width": 1920,
-            "height": 1080,
-            "duration": 93,
-            "levels": [
-              "src",
-              "720p"
-            ]
-          },
-          "thumb": {
-            "type": "image",
-            "full": "m/11f41fc89614039e/full.webp",
-            "thumb": "m/11f41fc89614039e/thumb.webp",
-            "width": 1920,
-            "height": 1080
-          },
-          "caption": "Openness"
         }
       ],
       "images": [
@@ -2614,6 +2593,29 @@
         "width": 1623,
         "height": 2160
       },
+      "videos": [
+        {
+          "src": {
+            "type": "video",
+            "hls": "m/777a548544ba171e/master.m3u8",
+            "width": 1920,
+            "height": 1080,
+            "duration": 93,
+            "levels": [
+              "src",
+              "720p"
+            ]
+          },
+          "thumb": {
+            "type": "image",
+            "full": "m/11f41fc89614039e/full.webp",
+            "thumb": "m/11f41fc89614039e/thumb.webp",
+            "width": 1920,
+            "height": 1080
+          },
+          "caption": "Openness"
+        }
+      ],
       "images": []
     }
   ],
