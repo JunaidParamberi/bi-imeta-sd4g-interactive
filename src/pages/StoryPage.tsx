@@ -134,9 +134,7 @@ export default function StoryPage() {
             )}
 
             <div
-              className={`border-accent-green border-(length:--line-hair) max-w-full flex justify-center items-center mb-3 ${
-                sections.length > 1 ? "min-h-[52%] max-h-[52%]" : "min-h-[60%] max-h-[60%]"
-              }`}
+              className="border-accent-green border-(length:--line-hair) max-w-full flex justify-center items-center mb-3 flex-1 min-h-0"
             >
               <AnimatePresence mode="wait" initial={false}>
               <motion.div
@@ -188,7 +186,7 @@ export default function StoryPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.15 } }}
-                className="flex w-full h-[40%] overflow-x-auto gap-4 custom-scrollbar-y"
+                className="flex w-full h-[25%] shrink-0 overflow-x-auto gap-4 custom-scrollbar-y"
                 onKeyDown={handleRowKeys}
               >
                 {media.map((item, idx) => (
