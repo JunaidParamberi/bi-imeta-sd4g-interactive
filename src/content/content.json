@@ -2584,8 +2584,8 @@
       "id": 2,
       "title": "Openness. Respect. Opportunity.",
       "slug": "openness-respect-opportunity",
-      "text": "Content coming soon.",
-      "coverText": "Content coming soon.",
+      "text": "",
+      "coverText": "Open for everyone, respect for everyone and opportunity for everyone: our commitment to an inclusive workplace powered by our people.",
       "coverImage": {
         "type": "image",
         "full": "m/f0d66dcdbaa7e594/full.webp",
@@ -2616,7 +2616,26 @@
           "caption": "Openness"
         }
       ],
-      "images": []
+      "images": [],
+      "lists": [
+        {
+          "listHead": "Our commitment",
+          "listPoints": [
+            "Open for everyone: Innovation thrives when we bring together different experiences, perspectives, and ideas. We are committed to welcoming and bringing together the talent we need to create value through innovation together.",
+            "Respect for everyone: We are dedicated to creating working environments in which every person is treated with respect, feels valued and heard.",
+            "Opportunity for everyone: We are committed to providing equal opportunity for development and growth to all our people because we are powered by our people and the success of our people determines our success as a company."
+          ]
+        },
+        {
+          "listHead": "Key Principles",
+          "listPoints": [
+            "Commitment to a workplace free of discrimination, anchored in company values and Code of Conduct",
+            "Leaders and employees are accountable for promoting respect, openness, and opportunities",
+            "Equal access to growth and development opportunities for all",
+            "The framework reflects global changes and ensures compliance with local laws and supports “Our Behaviors”"
+          ]
+        }
+      ]
     }
   ],
   "team1": [

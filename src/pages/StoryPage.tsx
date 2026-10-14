@@ -159,7 +159,7 @@ export default function StoryPage() {
 
                 {/* Render lists if they exist */}
                 {section.lists && section.lists.length > 0 && (
-                  <div className="flex flex-col gap-[1cqw] mt-4 p-3">
+                  <div className={`flex flex-col gap-[1cqw] p-3${section.text ? " mt-4" : ""}`}>
                     {section.lists.map((list, idx) => (
                       <div key={idx} className="flex flex-col gap-[0.5cqw]">
                         <h3 className="font-semibold text-white text-[1cqw] xl:text-[0.9cqw]">
